@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main>
+    <p>Hi, please enter your name:</p>
+    <p>First: <input v-model="firstName" /></p>
+    <p>Last: <input v-model="lastName" /></p>
+    <p>{{ fullName }}</p>
+    <p><button v-on:click="reset">Reset</button></p>
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      firstName: '',
+      lastName: ''
+    }
+  },
+  computed: {
+    fullName() {
+      return this.firstName + ' ' + this.lastName
+    }
+  },
+  methods: {
+    reset() {
+      this.firstName = ''
+      this.lastName = ''
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+main {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 1em;
+  max-width: 240px;
+  margin: 0 auto;
+  background-color:#eee;
 }
 </style>
