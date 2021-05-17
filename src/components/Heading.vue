@@ -1,5 +1,5 @@
-<template functional>
-  <h1>{{ props.msg }}</h1>
+<template>
+  <h1>{{ msg }}</h1>
 </template>
 
 <script>
