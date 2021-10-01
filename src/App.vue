@@ -25,7 +25,8 @@ export default {
     items: {
       handler(val, oldVal) {
         console.log(oldVal + ' --> ' + val)
-      }
+      },
+      deep: true
     }
   },
   methods: {
